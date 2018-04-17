@@ -7,7 +7,8 @@
 //
 
 // Source code referred from http://www.cnblogs.com/ludashi/p/4925042.html
-
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
 #import "ViewController.h"
 #import <ReactiveObjC/ReactiveObjC.h>
 @interface ViewController ()
@@ -20,7 +21,30 @@
     [super viewDidLoad];
 //    [self signalSwitch];
 //    [self combineSignal];
-    [self mergeSignal];
+//    [self mergeSignal];
+    [self setupComponent];
+}
+
+- (void)setupComponent {
+    UITextField *userNameField = [[UITextField alloc] initWithFrame:CGRectMake(30, 100, ScreenWidth-2*30, 44)];
+    userNameField.borderStyle = UITextBorderStyleLine;
+    userNameField.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:userNameField];
+    
+    UITextField *passwordField = [[UITextField alloc] initWithFrame:CGRectMake(30, 100+44+20, ScreenWidth-2*30, 44)];
+    passwordField.borderStyle = UITextBorderStyleLine;
+    passwordField.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:passwordField];
+    
+    UIButton *loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(30, 100+(44+20)*2, ScreenWidth-2*30, 44)];
+    [loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
+    [loginBtn setBackgroundColor:[UIColor grayColor]];
+    [loginBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:loginBtn];
+}
+
+- (void)btnClick {
+    NSLog(@"lalala");
 }
 
 - (void)mergeSignal {
