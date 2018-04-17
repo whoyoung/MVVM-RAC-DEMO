@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2906574D258DCE7C1B8010EB /* Pods_MVVM_RACDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2D236895989820DF4328D08 /* Pods_MVVM_RACDemo.framework */; };
+		47CDA2363E46735E8261202F /* libPods-MVVM_RACDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2754268D6720507221BBF52C /* libPods-MVVM_RACDemo.a */; };
 		77A15A4B2085951B002387FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A15A4A2085951B002387FA /* AppDelegate.m */; };
 		77A15A4E2085951B002387FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A15A4D2085951B002387FA /* ViewController.m */; };
 		77A15A512085951B002387FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A15A4F2085951B002387FA /* Main.storyboard */; };
@@ -17,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2754268D6720507221BBF52C /* libPods-MVVM_RACDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MVVM_RACDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7559C559F34CEA37A286D84E /* Pods-MVVM_RACDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_RACDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVM_RACDemo/Pods-MVVM_RACDemo.release.xcconfig"; sourceTree = "<group>"; };
 		77A15A462085951B002387FA /* MVVM_RACDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_RACDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A15A492085951B002387FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,7 +30,6 @@
 		77A15A572085951B002387FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77A15A582085951B002387FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AC38B0EB68422D3DB0B29FFF /* Pods-MVVM_RACDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_RACDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVM_RACDemo/Pods-MVVM_RACDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		F2D236895989820DF4328D08 /* Pods_MVVM_RACDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RACDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2906574D258DCE7C1B8010EB /* Pods_MVVM_RACDemo.framework in Frameworks */,
+				47CDA2363E46735E8261202F /* libPods-MVVM_RACDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,7 +47,7 @@
 		17C505A52D29A081AFBABD0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F2D236895989820DF4328D08 /* Pods_MVVM_RACDemo.framework */,
+				2754268D6720507221BBF52C /* libPods-MVVM_RACDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

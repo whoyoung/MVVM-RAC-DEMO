@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import <ReactiveObjC/ReactiveObjC.h>
 @interface ViewController ()
 
 @end
@@ -16,17 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    RACSequence *sequence = [@[@"you", @"are", @"beautiful"] rac_sequence];
-//    RACSignal *signal =  sequence.signal;
-//    RACSignal *capitalizedSignal = [signal map:^id(NSString * value) {
-//        return [value capitalizedString];
-//        }];
-//    [signal subscribeNext:^(NSString * x) {
-//        NSLog(@"signal --- %@", x);
-//        }];
-//    [capitalizedSignal subscribeNext:^(NSString * x) {
-//        NSLog(@"capitalizedSignal --- %@", x);
-//        }];
+    RACSequence *sequence = [@[@"you", @"are", @"beautiful"] rac_sequence];
+    RACSignal *signal =  sequence.signal;
+    RACSignal *capitalizedSignal = [signal map:^id(NSString * value) {
+        return [value capitalizedString];
+        }];
+    [signal subscribeNext:^(NSString * x) {
+        NSLog(@"signal --- %@", x);
+        }];
+    [capitalizedSignal subscribeNext:^(NSString * x) {
+        NSLog(@"capitalizedSignal --- %@", x);
+        }];
 }
 
 
