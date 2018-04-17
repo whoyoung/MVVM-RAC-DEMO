@@ -19,7 +19,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self signalSwitch];
-    [self combineSignal];
+//    [self combineSignal];
+    [self mergeSignal];
+}
+
+- (void)mergeSignal {
+    RACSubject *letter = [RACSubject subject];
+    RACSubject *number = [RACSubject subject];
+    RACSubject *chinese = [RACSubject subject];
+    
+    [[RACSignal merge:@[letter,number,chinese]] subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    }];
+    
+    [letter sendNext:@"A"];
+    [letter sendNext:@"B"];
+    [number sendNext:@"1"];
+    [chinese sendNext:@"你好"];
 }
 
 - (void)combineSignal {
