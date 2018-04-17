@@ -6,6 +6,8 @@
 //  Copyright © 2018年 杨虎. All rights reserved.
 //
 
+// Source code referred from http://www.cnblogs.com/ludashi/p/4925042.html
+
 #import "ViewController.h"
 #import <ReactiveObjC/ReactiveObjC.h>
 @interface ViewController ()
@@ -16,7 +18,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self signalSwitch];
+//    [self signalSwitch];
+    [self combineSignal];
+}
+
+- (void)combineSignal {
+    RACSubject *letter = [RACSubject subject];
+    RACSubject *number = [RACSubject subject];
+    
+    [[RACSignal combineLatest:@[letter,number] reduce:^(NSString *letter, NSString *number){
+        return [letter stringByAppendingString:number];
+    }] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"%@",x);
+    }];
+    
+    [letter sendNext:@"A"];
+    [letter sendNext:@"B"];
+    [number sendNext:@"1"];
+    [letter sendNext:@"C"];
+    [number sendNext:@"2"];
 }
 
 - (void)signalSwitch {
