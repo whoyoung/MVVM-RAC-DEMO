@@ -30,7 +30,6 @@
     
     [self setupComponent];
     [self bindViewModel];
-    [self btnClick];
 }
 
 - (void)setupComponent {
@@ -49,7 +48,6 @@
     UIButton *loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(30, 100+(44+20)*2, ScreenWidth-2*30, 44)];
     [loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
     [loginBtn setBackgroundColor:[UIColor grayColor]];
-    [loginBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     loginBtn.enabled = NO;
     _loginBtn = loginBtn;
     [self.view addSubview:loginBtn];
@@ -60,6 +58,8 @@
     RAC(self.viewModel,model.userName) = self.userNameField.rac_textSignal;
     RAC(self.viewModel,model.password) = self.passwordField.rac_textSignal;
     RAC(self.loginBtn,enabled) = [self.viewModel buttonIsValid];
+    
+    [self btnClick];
     
     @weakify(self);
     [self.viewModel.successObject subscribeNext:^(NSArray *x) {
@@ -74,7 +74,6 @@
 }
 
 - (void)btnClick {
-    NSLog(@"lalala");
     [[self.loginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         [_viewModel login];
     }];
