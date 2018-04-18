@@ -27,8 +27,10 @@
 //    [self signalSwitch];
 //    [self combineSignal];
 //    [self mergeSignal];
+    
     [self setupComponent];
     [self bindViewModel];
+    [self btnClick];
 }
 
 - (void)setupComponent {
@@ -59,10 +61,23 @@
     RAC(self.viewModel,model.password) = self.passwordField.rac_textSignal;
     RAC(self.loginBtn,enabled) = [self.viewModel buttonIsValid];
     
+    @weakify(self);
+    [self.viewModel.successObject subscribeNext:^(NSArray *x) {
+        @strongify(self);
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"result" message:[NSString stringWithFormat:@"userName=%@, password=%@",x[0],x[1]] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertC addAction:action];
+        [self presentViewController:alertC animated:YES completion:nil];
+    }];
 }
 
 - (void)btnClick {
     NSLog(@"lalala");
+    [[self.loginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [_viewModel login];
+    }];
 }
 
 - (void)mergeSignal {

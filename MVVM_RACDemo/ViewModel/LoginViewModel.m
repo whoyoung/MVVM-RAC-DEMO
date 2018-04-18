@@ -36,6 +36,7 @@
     return isValid;
 }
 - (void)login {
-    
+    _requestData = @[self.model.userName,self.model.password];
+    [self.successObject sendNext:_requestData];
 }
 @end
