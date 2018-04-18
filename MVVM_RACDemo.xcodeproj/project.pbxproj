@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		47CDA2363E46735E8261202F /* libPods-MVVM_RACDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2754268D6720507221BBF52C /* libPods-MVVM_RACDemo.a */; };
+		7733FB9D2086D8D300BA9702 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733FB9C2086D8D300BA9702 /* LoginModel.m */; };
+		7733FBA02086D92700BA9702 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7733FB9F2086D92700BA9702 /* LoginViewModel.m */; };
 		77A15A4B2085951B002387FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A15A4A2085951B002387FA /* AppDelegate.m */; };
 		77A15A4E2085951B002387FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A15A4D2085951B002387FA /* ViewController.m */; };
 		77A15A512085951B002387FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A15A4F2085951B002387FA /* Main.storyboard */; };
@@ -19,6 +21,10 @@
 /* Begin PBXFileReference section */
 		2754268D6720507221BBF52C /* libPods-MVVM_RACDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MVVM_RACDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7559C559F34CEA37A286D84E /* Pods-MVVM_RACDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_RACDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVM_RACDemo/Pods-MVVM_RACDemo.release.xcconfig"; sourceTree = "<group>"; };
+		7733FB9B2086D8D300BA9702 /* LoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginModel.h; sourceTree = "<group>"; };
+		7733FB9C2086D8D300BA9702 /* LoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginModel.m; sourceTree = "<group>"; };
+		7733FB9E2086D92700BA9702 /* LoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
+		7733FB9F2086D92700BA9702 /* LoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
 		77A15A462085951B002387FA /* MVVM_RACDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_RACDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A15A492085951B002387FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		77A15A4A2085951B002387FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -52,6 +58,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7733FB972086D86400BA9702 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				77A15A4C2085951B002387FA /* ViewController.h */,
+				77A15A4D2085951B002387FA /* ViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7733FB992086D89100BA9702 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7733FB9E2086D92700BA9702 /* LoginViewModel.h */,
+				7733FB9F2086D92700BA9702 /* LoginViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7733FB9A2086D89C00BA9702 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7733FB9B2086D8D300BA9702 /* LoginModel.h */,
+				7733FB9C2086D8D300BA9702 /* LoginModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		77A15A3D2085951B002387FA = {
 			isa = PBXGroup;
 			children = (
@@ -75,8 +108,9 @@
 			children = (
 				77A15A492085951B002387FA /* AppDelegate.h */,
 				77A15A4A2085951B002387FA /* AppDelegate.m */,
-				77A15A4C2085951B002387FA /* ViewController.h */,
-				77A15A4D2085951B002387FA /* ViewController.m */,
+				7733FB9A2086D89C00BA9702 /* Model */,
+				7733FB992086D89100BA9702 /* ViewModel */,
+				7733FB972086D86400BA9702 /* ViewController */,
 				77A15A4F2085951B002387FA /* Main.storyboard */,
 				77A15A522085951B002387FA /* Assets.xcassets */,
 				77A15A542085951B002387FA /* LaunchScreen.storyboard */,
@@ -228,7 +262,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				77A15A4E2085951B002387FA /* ViewController.m in Sources */,
+				7733FB9D2086D8D300BA9702 /* LoginModel.m in Sources */,
 				77A15A592085951B002387FA /* main.m in Sources */,
+				7733FBA02086D92700BA9702 /* LoginViewModel.m in Sources */,
 				77A15A4B2085951B002387FA /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

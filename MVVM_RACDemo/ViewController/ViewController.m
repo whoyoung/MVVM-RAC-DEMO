@@ -11,8 +11,13 @@
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 #import "ViewController.h"
 #import <ReactiveObjC/ReactiveObjC.h>
+#import "LoginViewModel.h"
 @interface ViewController ()
+@property (nonatomic, weak) UITextField *userNameField;
+@property (nonatomic, weak) UITextField *passwordField;
+@property (nonatomic, weak) UIButton *loginBtn;
 
+@property (nonatomic, strong) LoginViewModel *viewModel;
 @end
 
 @implementation ViewController
@@ -23,24 +28,37 @@
 //    [self combineSignal];
 //    [self mergeSignal];
     [self setupComponent];
+    [self bindViewModel];
 }
 
 - (void)setupComponent {
     UITextField *userNameField = [[UITextField alloc] initWithFrame:CGRectMake(30, 100, ScreenWidth-2*30, 44)];
     userNameField.borderStyle = UITextBorderStyleLine;
     userNameField.backgroundColor = [UIColor orangeColor];
+    _userNameField = userNameField;
     [self.view addSubview:userNameField];
     
     UITextField *passwordField = [[UITextField alloc] initWithFrame:CGRectMake(30, 100+44+20, ScreenWidth-2*30, 44)];
     passwordField.borderStyle = UITextBorderStyleLine;
     passwordField.backgroundColor = [UIColor orangeColor];
+    _passwordField = passwordField;
     [self.view addSubview:passwordField];
     
     UIButton *loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(30, 100+(44+20)*2, ScreenWidth-2*30, 44)];
     [loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
     [loginBtn setBackgroundColor:[UIColor grayColor]];
     [loginBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    loginBtn.enabled = NO;
+    _loginBtn = loginBtn;
     [self.view addSubview:loginBtn];
+}
+
+- (void)bindViewModel {
+    _viewModel = [[LoginViewModel alloc] init];
+    RAC(self.viewModel,model.userName) = self.userNameField.rac_textSignal;
+    RAC(self.viewModel,model.password) = self.passwordField.rac_textSignal;
+    RAC(self.loginBtn,enabled) = [self.viewModel buttonIsValid];
+    
 }
 
 - (void)btnClick {
